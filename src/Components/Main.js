@@ -1,10 +1,10 @@
 import Counter from "./Counter";
 import Aside from "./Aside";
-function Main({count, setCount, color, setColor, newColor}) {
+function Main() {
   return (
     <div className="main">
-      <Counter count={count} setCount={setCount}/>
-      <Aside color={color} setColor={setColor} newColor={newColor}/>
+      <Counter />
+      <Aside />
     </div>
   );
 }

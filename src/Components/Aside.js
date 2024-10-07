@@ -1,15 +1,22 @@
+import { useDispatch, useSelector } from "react-redux";
 import randomColor from "randomcolor";
+import { color_change } from "./redux/color/colorSlice";
 
-function Aside({color, setColor}) {
-  const newColor = randomColor()
+function Aside() {
+ const color = useSelector(state=>state.color.value)
 
-  function colorChange(){
-    setColor(newColor)
-  }
+ const dispatch = useDispatch()
+
+ const colorFun=()=>{
+  dispatch(color_change({
+    color: randomColor()
+  })); 
+ }
+
   return (
     <div className="aside">
-      <h2 style={{ color: color }}>Aside</h2>
-      <button onClick={() => setColor(newColor)}>Change Color</button>
+      <h2 style={{color:color}}>Aside</h2>
+      <button onClick={colorFun}>Change Color</button>
     </div>
   );
 }
